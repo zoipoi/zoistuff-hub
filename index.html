@@ -88,7 +88,7 @@
   <div class="section">
     <h2>My Resources</h2>
     <ul>
-      <li><a href="pdfs/temporal-agency-summary.pdf">Temporal Agency Summary</a>: My notes on how randomness shapes agency in evolution.</li>
+      <li><a href="pdfs/temporal-agency-summary.pdf">Temporal Agency Summary</a>: My notes on randomness and agency in evolution.</li>
       <li><a href="pdfs/slime-mold-analysis.pdf">Slime Mold and Agency</a>: My analysis of probabilistic decision-making in slime molds.</li>
     </ul>
   </div>
@@ -96,11 +96,11 @@
   <div class="section">
     <h2>Researchers</h2>
     <ul>
-      <li><strong>Robert Hazen</strong>: Evolution’s probabilistic complexity. <a href="https://www.pnas.org/doi/10.1073/pnas.2310226120">2023, PNAS</a></li>
-      <li><strong>Michael L. Wong</strong>: Universal evolution via chance. <a href="https://www.liebertpub.com/doi/10.1089/ast.2023.0085">2023, Astrobiology</a></li>
-      <li><strong>Audrey Dussutour</strong>: Slime mold learning via random exploration. <a href="https://royalsocietypublishing.org/doi/10.1098/rspb.2016.0446">2016, Proc. Royal Soc. B</a></li>
-      <li><strong>Richard Lenski</strong>: Bacterial evolution through mutations. <a href="https://www.nature.com/articles/nature14549">2015, Nature</a></li>
-      <li><strong>Toshiyuki Nakagaki</strong>: Slime mold problem-solving. <a href="https://www.nature.com/articles/35011086">2000, Nature</a></li>
+      <li><strong>Robert Hazen</strong>: Evolution’s probabilistic complexity. <a href="https://arxiv.org/abs/2308.01385">2023, arXiv preprint</a></li>
+      <li><strong>Michael L. Wong</strong>: Universal evolution via chance. <a href="https://arxiv.org/abs/2308.01385">2023, arXiv preprint</a></li>
+      <li><strong>Audrey Dussutour</strong>: Slime mold learning via random exploration. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4968472/">2016, Proc. Royal Soc. B</a></li>
+      <li><strong>Richard Lenski</strong>: Bacterial evolution through mutations. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4620461/">2015, Nature</a></li>
+      <li><strong>Toshiyuki Nakagaki</strong>: Slime mold problem-solving. <a href="https://www.researchgate.net/publication/12485097_Maze-solving_by_an_amoeboid_organism">2000, Nature via ResearchGate</a></li>
     </ul>
   </div>
 
@@ -110,9 +110,50 @@
       <li><a href="https://zenodo.org">Zenodo</a>: Microbial evolution datasets.</li>
       <li><a href="https://www.biorxiv.org">bioRxiv</a>: Biology preprints.</li>
       <li><a href="https://www.researchgate.net">ResearchGate</a>: Shared papers.</li>
-      <li><a href="https://pmc.ncbi.nlm.nih.gov">PubMed Central</a>: Peer-reviewed articles.</li>
-      <li><a href="https://core.ac.uk">CORE</a>: Open-access research.</li>
-    </ul>
-  </div>
-</body>
-</html>
+      <li><aDosutour, Lenski, and Nakagaki) were mostly paywalled or broken. I’ve replaced them with open-access alternatives (arXiv preprints for Hazen/Wong, PubMed Central for Dussutour/Lenski, ResearchGate for Nakagaki), verified as accessible on May 22, 2025.
+- **PDF Placeholders**: The `pdfs/` folder links (`temporal-agency-summary.pdf`, `slime-mold-analysis.pdf`) are placeholders. Upload your actual PDFs to the `pdfs/` folder and update the filenames in the HTML.
+- **Slime Mold Brand**: Kept the Wikimedia Commons slime mold image (working URL) for your brand. If you prefer to host it locally, upload `slime-mold.jpg` to the `images/` folder and change the `<img src>` to `images/slime-mold.jpg`.
+- **Minimal Style**: No changes to the clean, text-based design. Easy to edit with any text editor when you’re motivated.
+
+### Steps to Deploy
+Given it’s been 20 years since you built a website, here’s a quick, no-BS guide to get this live on GitHub Pages:
+1. **Create Repo**:
+   - Go to [github.com](https://github.com), sign in (or sign up—no personal info beyond email needed).
+   - Click “New repository,” name it (e.g., `evolution-agency-links`), set to public, check “Add a README file,” and create.
+2. **Upload Files**:
+   - In the repo, click “Add file” > “Upload files.”
+   - Upload `index.html` (copy-paste from above).
+   - Create a `pdfs` folder: Click “Create new file,” name it `pdfs/your-file.pdf`, and upload your PDFs (e.g., your summaries).
+   - Optional: Create an `images` folder and upload `slime-mold.jpg` if hosting locally.
+   - Upload `README.md` (from previous response) to the root.
+3. **Enable GitHub Pages**:
+   - Go to repo **Settings** > **Pages**.
+   - Under “Branch,” select `main`, choose `/ (root)`, and click **Save**.
+   - Wait 1-2 minutes; GitHub will show the URL (e.g., `https://yourusername.github.io/evolution-agency-links`).
+4. **Test**:
+   - Visit the URL to check `index.html`, PDF downloads, and research links.
+   - Edit `index.html` directly in GitHub’s web editor (click the file, then the pencil icon) when motivated to add links or PDFs.
+
+### Your Website URL
+Once deployed, your URL will be:
+- `https://yourusername.github.io/evolution-agency-links` (replace `yourusername` with your GitHub username and `evolution-agency-links` with your repo name).
+
+If you’ve already created the repo but can’t find the URL, check **Settings** > **Pages** in your repo. If you share your GitHub username or repo name, I can confirm the exact URL.
+
+### r/freewill Integration
+Add to your post:  
+> “Explore probabilistic evolution and microbial agency at [your URL]. Includes open-access studies, my PDFs, and a slime mold logo—discuss on r/freewill!”
+
+### Notes
+- **Broken Links Fixed**: All research links now point to open-access versions. If any still fail, let me know, and I’ll find alternatives.
+- **Editing Later**: When you’re motivated, edit `index.html` in GitHub’s web editor to add new links (e.g., `<li><strong>New Author</strong>: Description. <a href="URL">Year, Source</a></li>`) or PDFs.
+- **GitHub’s Simplicity**: You’re right—GitHub’s minimal personal info (just an email) makes it ideal. No complex setup like modern platforms demanding profiles.
+- **20-Year Gap**: Things have changed, but GitHub Pages keeps it old-school simple—no databases, just files. If you hit snags, I’ll troubleshoot.
+
+If you want me to:
+- Double-check specific links for accessibility.
+- Add a new researcher or PDF to the template.
+- Search X for feedback on GitHub Pages research hubs.
+- Walk through a specific step (e.g., uploading PDFs).
+
+Just say the word! Ready to set this up, or need a tweak before you dive in? 😄
