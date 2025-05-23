@@ -1,0 +1,118 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evolution & Agency Research</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      line-height: 1.6;
+      background: #fff;
+      color: #333;
+    }
+    h1, h2 {
+      color: #222;
+    }
+    a {
+      color: #1a73e8;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+    .section {
+      margin-bottom: 20px;
+    }
+    .header-img {
+      max-width: 150px;
+      height: auto;
+      display: block;
+      margin: 0 auto 20px;
+    }
+  </style>
+</head>
+<body>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Physarum_polycephalum_plasmodium.jpg/320px-Physarum_polycephalum_plasmodium.jpg" alt="Slime Mold Network" class="header-img">
+  <h1>Evolution & Agency Research</h1>
+  <p>Research on how probabilistic evolution in microbes supports agency as a process, not a moment. Explore and discuss on r/freewill.</p>
+
+  <div class="section">
+    <h2>My Resources</h2>
+    <ul>
+      <li><a href="pdfs/temporal-agency-summary.pdf">Temporal Agency Summary</a>: My notes on how randomness shapes agency in evolution.</li>
+      <li><a href="pdfs/slime-mold-analysis.pdf">Slime Mold and Agency</a>: My analysis of probabilistic decision-making in slime molds.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Researchers</h2>
+    <ul>
+      <li><strong>Robert Hazen</strong>: Evolution’s probabilistic complexity. <a href="https://www.pnas.org/doi/10.1073/pnas.2310226120">2023, PNAS</a></li>
+      <li><strong>Michael L. Wong</strong>: Universal evolution via chance. <a href="https://www.liebertpub.com/doi/10.1089/ast.2023.0085">2023, Astrobiology</a></li>
+      <li><strong>Audrey Dussutour</strong>: Slime mold learning via random exploration. <a href="https://royalsocietypublishing.org/doi/10.1098/rspb.2016.0446">2016, Proc. Royal Soc. B</a></li>
+      <li><strong>Richard Lenski</strong>: Bacterial evolution through mutations. <a href="https://www.nature.com/articles/nature14549">2015, Nature</a></li>
+      <li><strong>Toshiyuki Nakagaki</strong>: Slime mold problem-solving. <a href="https://www.nature.com/articles/35011086">2000, Nature</a></li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Repositories</h2>
+    <ul>
+      <li><a href="https://zenodo.org">Zenodo</a>: Microbial evolution datasets.</li>
+      <li><a href="https://www.biorxiv.org">bioRxiv</a>: Biology preprints.</li>
+      <li><a href="https://www.researchgate.net">ResearchGate</a>: Shared papers.</li>
+      <li><a href="https://pmc.ncbi.nlm.nih.gov">PubMed Central</a>: Peer-reviewed articles.</li>
+      <li><a href="https://core.ac.uk">CORE</a>: Open-access research.</li>
+    </ul>
+  </div>
+</body>
+</html>
